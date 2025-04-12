@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/karate-division-calculator/static/css/main.8377dbe9.css",
-    "main.js": "/karate-division-calculator/static/js/main.68c097f0.js",
+    "main.js": "/karate-division-calculator/static/js/main.c1d84723.js",
     "index.html": "/karate-division-calculator/index.html",
     "main.8377dbe9.css.map": "/karate-division-calculator/static/css/main.8377dbe9.css.map",
-    "main.68c097f0.js.map": "/karate-division-calculator/static/js/main.68c097f0.js.map"
+    "main.c1d84723.js.map": "/karate-division-calculator/static/js/main.c1d84723.js.map"
   },
   "entrypoints": [
     "static/css/main.8377dbe9.css",
-    "static/js/main.68c097f0.js"
+    "static/js/main.c1d84723.js"
   ]
 }
