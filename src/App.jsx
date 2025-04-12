@@ -293,13 +293,23 @@ export default function KarateScoreCalculator() {
               {/* Score steppers */}
               <div className="flex flex-wrap gap-4 mt-2">
                 {comp.scores.map((score, i) => {
-                  const numericScore = parseFloat(score) || 9.93;
+                  // Only parse the score if it's not empty
+                  const hasValue = score !== "";
+                  const numericScore = hasValue ? parseFloat(score) : null;
+                  
                   const incrementScore = (delta) => {
-                    let newVal = numericScore + delta;
-                    if (newVal < 9.93) newVal = 9.93;
-                    if (newVal > 9.99) newVal = 9.99;
+                    // If no value exists yet, start at 9.93 for + button or 9.94 for - button
+                    let newVal;
+                    if (!hasValue) {
+                      newVal = delta > 0 ? 9.93 : 9.94;
+                    } else {
+                      newVal = numericScore + delta;
+                      if (newVal < 9.93) newVal = 9.93;
+                      if (newVal > 9.99) newVal = 9.99;
+                    }
                     handleScoreChange(comp.id, i, newVal.toFixed(2));
                   };
+                  
                   return (
                     <div key={i} className="flex items-center space-x-2">
                       <Button
@@ -309,7 +319,7 @@ export default function KarateScoreCalculator() {
                         -
                       </Button>
                       <div className="w-14 text-center border p-1">
-                        {numericScore.toFixed(2)}
+                        {hasValue ? numericScore.toFixed(2) : ""}
                       </div>
                       <Button
                         className="bg-gray-300 text-black px-2"
